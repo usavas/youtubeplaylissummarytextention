@@ -1,0 +1,30 @@
+{
+    "name": "Youtube Lister",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "List Youtube Playlists with one Click!",
+    "permissions": [
+        "activeTab",
+        "declarativeContent"
+    ],
+    "icons": {
+        "16": "images/get_started16.png",
+        "32": "images/get_started32.png",
+        "48": "images/get_started48.png",
+        "128": "images/get_started128.png"
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+      },
+    "page_action": {
+        "default_icon": {
+            "16": "images/get_started16.png",
+            "32": "images/get_started32.png",
+            "48": "images/get_started48.png",
+            "128": "images/get_started128.png"
+        },
+        "default_title": "Click to make list of videos",
+        "default_popup": "popup.html"
+    }
+}
