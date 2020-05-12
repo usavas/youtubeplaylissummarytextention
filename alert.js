@@ -35,16 +35,27 @@ videos.forEach((element) => {
   }
 });
 
+function getTotalTimeInString(totalTimeInSeconds, playSpeed){
+  let totalTime = totalTimeInSeconds / playSpeed;
+  totalTime = Math.floor(totalTime);
+  var hours, minutes, seconds;
+  hours = Math.floor(totalTime / 3600);
+  totalTime %= 3600;
+  minutes = Math.floor(totalTime / 60);
+  seconds = totalTime % 60;
+  let totalTimeInString = hours + ':' + minutes + ':' + seconds;
+  return totalTimeInString;
+}
+
 console.log(summaryList.join('\n'));
 
-var hours, minutes, seconds; 
-hours = Math.floor(totalVideoTimeInSec / 3600);
-totalVideoTimeInSec %= 3600;
-minutes = Math.floor(totalVideoTimeInSec / 60);
-seconds = totalVideoTimeInSec % 60;
+summaryList[0] += (' Total Time: ' + getTotalTimeInString(totalVideoTimeInSec, 1));
 
-var totalTimeInString = hours + ':' + minutes + ':' + seconds;
-summaryList[0] += (' Total Time: ' + totalTimeInString);
+summaryList[1] = 'Total time in 1.25 speed: ' + getTotalTimeInString(totalVideoTimeInSec, 1.25);
+summaryList[2] = 'Total time in 1.5 speed ' + getTotalTimeInString(totalVideoTimeInSec, 1.5);
+summaryList[3] = 'Total time in 1.75 speed: ' + getTotalTimeInString(totalVideoTimeInSec, 1.75);
+summaryList[4] = 'Total time in 2 speed: ' + getTotalTimeInString(totalVideoTimeInSec, 2);
+
 
 var sumWindow = window.open("", "sumWindow", "width= 600,height:400");
 sumWindow.document.write(summaryList.join('<br>'));
